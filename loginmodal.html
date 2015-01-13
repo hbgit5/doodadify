@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+	<title>Doodadify Login</title>
+	<meta charset = 'UTF-8' />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+	<link rel = "stylesheet" href = "modal_main.css" type = "text/css">
+
+
+</head>
+<body>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Sign-up/Log</button>
+<!--Removed data-whatever="@mdo" -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+      	<img src = "images/doodadify_logo.png" width = "125" height = "30" />
+        <button type="button" class="close close-solid" data-dismiss="modal" aria-label="Close" ><span id="remove-button"><img src="images/close.png" width = '40' /></span> </button>
+        
+
+        
+      </div>
+      <div class="modal-body">
+      <div id = "login-panel">
+       <form id="login-form">
+          <div class="form-group login-section">
+           <!-- <label for="recipient-name" class="control-label">Recipient:</label> -->
+        
+            <div id = 'login-username-field'>
+            	<span class = 'glyphicon glyphicon-user'></span>
+            	<input type="text" class="form-control login-shorten " placeholder="USERNAME"/>
+        	</div>
+        	<div id = 'login-password-field'>
+    			<span class = "glyphicon glyphicon-lock"></span>
+            	<input type="text" class="form-control login-shorten" placeholder="PASSWORD"/>
+        	</div>
+       
+
+        </div>
+           <div id="register-button-field">
+     		     <button type="button" class="btn btn-success" id="login-submit">LOGIN</button>
+             <p><a href = '#'id="frgt-pswd">Forgot Your Password?</a></p>
+		       </div>
+
+        </form>
+    	</div>
+      </div>
+      
+    	
+        
+      
+    </div>
+  </div>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src = "dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

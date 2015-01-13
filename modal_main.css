@@ -1,0 +1,175 @@
+.modal {
+    
+    background-color: white;
+}
+.close-solid{
+	opacity: 1 !important;
+}
+
+.modal-body {
+
+	margin: auto;
+	height:313px;
+	width: 334px;
+	background-color:#998f8f !important;
+	padding-top:22px;
+	padding-bottom:10px;
+}
+#remove-button{
+	color: white;
+}
+
+#register-button-field{
+	position: relative;
+}
+
+#email-field {
+	position: relative;
+
+}
+
+#login-username-field{
+	position: relative;
+}
+#login-password-field{
+	position: relative;
+}
+
+#username-field{
+	position: relative;
+
+}
+#createPassword-field{
+	position: relative;
+
+}
+
+#verifyPassword-field {
+	position: relative;
+}
+#checkbox-field{
+	position: relative;
+	
+}
+
+#ageVerify-box{
+	position:absolute;
+	top: 18px;
+	left: 117px;
+}
+#signup-form label {
+	position:absolute;
+	color: white !important;
+	top: 19px;
+	left: 134px;
+}
+
+.glyphicon-lock{
+	position: absolute;
+	top: 8px;
+	left: 12px;
+	color: #998f8f;
+}
+
+.glyphicon-user {
+	position: absolute;
+	top: 8px;
+	left: 12px;
+	color: #998f8f;
+}
+.glyphicon-envelope {
+	position: absolute;
+	top: 8px;
+	left:12px;
+	color: #998f8f;
+}
+
+.modal-header {
+	position: relative;
+	border:0;
+	height: 60px;
+
+}
+.modal-header img {
+	margin-left: 19px;
+}
+
+#remove-button{
+   position:absolute;
+   
+   top:-14px;
+   right:-17px;	
+}
+#doodad-submit {
+	position:absolute;
+	top: 12px;
+	left: 63px;
+	font-size: 13px;
+	color: white;
+	background: #04b16f;
+}
+
+#login-submit {
+	width:225px;
+	text-align: center;
+	margin-left:36px;
+	margin-top: 30px;
+	margin-bottom:20px;
+	background: #04b16f;
+}
+#frgt-pswd {
+	margin-top:20px;
+	color: white;
+	font-size:13px;
+	text-decoration: none;
+	margin-left:80px;
+}
+.modal-content {
+	width: 410px;
+	height: 416px;
+	background-color: #333333;
+	border: 1px solid lightgray;
+	border-radius: 15px;
+}
+
+.login-section {
+
+	margin-top: 50px;
+}
+
+.login-shorten {
+	
+	width: 300px;
+	height: 30px;
+	padding-left:30px;
+	margin-top:23px;
+
+}
+
+.shorten {
+	margin-left: 4px;
+	margin-top: 20px;
+	width: 300px;
+	height: 30px;
+	padding-left:30px;
+}
+
+.usericon input{
+    padding-left:25px;
+}
+.usericon:before{
+    opacity:.8;
+    height:100%;
+    width:25px;
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    position: absolute;
+    content:"\e008";
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    pointer-events: none;
+    -webkit-font-smoothing: antialiased;
+}
+
