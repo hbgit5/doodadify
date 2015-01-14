@@ -7,13 +7,10 @@
 }
 
 .modal-body {
-
 	margin: auto;
-	height:313px;
-	width: 334px;
-	background-color:#998f8f !important;
-	padding-top:22px;
-	padding-bottom:10px;
+	height:258px;
+	width: 330px;
+    padding: 0;
 }
 #remove-button{
 	color: white;
@@ -25,43 +22,59 @@
 
 #email-field {
 	position: relative;
+    margin-left:15px;
+   
+}
 
+#login-form {
+    height:257px;
+}
+
+.form-control {
+    border-radius:0;
+    margin-left:0;
+}
+
+#signup-form {
+    padding-top:15px;
+    height:257px;
+}
+
+.form-group {
+    margin-bottom:0;
 }
 
 #login-username-field{
 	position: relative;
+    margin-left:15px;
 }
 #login-password-field{
 	position: relative;
+    margin-left:15px;
 }
 
 #username-field{
 	position: relative;
-
+     margin-left:15px;
 }
 #createPassword-field{
 	position: relative;
-
+     margin-left:15px;
 }
 
 #verifyPassword-field {
 	position: relative;
+     margin-left:15px;
 }
 #checkbox-field{
 	position: relative;
+    background-color:#998f8f;
+    text-align:center;
 	
 }
 
-#ageVerify-box{
-	position:absolute;
-	top: 18px;
-	left: 117px;
-}
 #signup-form label {
-	position:absolute;
 	color: white !important;
-	top: 19px;
-	left: 134px;
 }
 
 .glyphicon-lock{
@@ -103,7 +116,7 @@
 #doodad-submit {
 	position:absolute;
 	top: 12px;
-	left: 63px;
+	left: 75px;
 	font-size: 13px;
 	color: white;
 	background: #04b16f;
@@ -112,8 +125,7 @@
 #login-submit {
 	width:225px;
 	text-align: center;
-	margin-left:36px;
-	margin-top: 30px;
+    margin-left:50px;
 	margin-bottom:20px;
 	background: #04b16f;
 }
@@ -122,19 +134,20 @@
 	color: white;
 	font-size:13px;
 	text-decoration: none;
-	margin-left:80px;
+	margin-left:120px;
+    padding-bottom:50px;
 }
 .modal-content {
-	width: 410px;
-	height: 416px;
+	width: 400px;
+	height: 400px;
 	background-color: #333333;
 	border: 1px solid lightgray;
 	border-radius: 15px;
 }
 
 .login-section {
-
-	margin-top: 50px;
+    padding-top:40px;
+    margin-bottom:0;
 }
 
 .login-shorten {
@@ -142,13 +155,13 @@
 	width: 300px;
 	height: 30px;
 	padding-left:30px;
-	margin-top:23px;
+	margin-bottom:23px;
 
 }
 
 .shorten {
 	margin-left: 4px;
-	margin-top: 20px;
+	margin-bottom: 10px;
 	width: 300px;
 	height: 30px;
 	padding-left:30px;
@@ -172,4 +185,54 @@
     pointer-events: none;
     -webkit-font-smoothing: antialiased;
 }
+
+/* Modal Tabs */
+@font-face {
+    font-family: meta;
+    src: url(MetaOT-Medi.woff);
+}
+
+
+ul#tabs {
+    width: 330px;
+    border: 0;
+}
+
+.modal-tab {
+    font-family: meta;
+    color:#998f8f;
+    font-size:23px;
+    width:165px;
+    height:50px;
+    text-align:center;
+}
+
+.nav-tabs>li>a {
+    margin-right:0;
+    border-radius:0;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    font-family: meta;
+    color: #440e3c;
+    background-color: #998f8f;
+    border: 1px solid #998f8f;
+    font-size:23px;
+    width:165px;
+    height:50x;
+    
+}
+
+.nav-tabs>li>a:hover, .nav-tabs>li>a:focus {
+    color: #998f8f;
+    background-color:#333333;
+    border:none;
+}
+
+.tab-pane {
+    background-color: #998f8f;
+}
+
+
+
 
