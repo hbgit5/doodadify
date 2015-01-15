@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="fabric.min.js"></script>
 </head>
 
 <body>
@@ -34,8 +34,8 @@
                     <button id="canvas-share">SHARE</button>
                 </div>
 
-                <div id="canvas-back-image">
-                    <img src="img/under_the_s.jpg"></img>
+                <div id="doodad-canvas-container">
+                    <canvas id="doodad-canvas" width="730" height="380"></canvas>
                 </div>
 
                 <div id="canvas-doodad-picker">

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="fabric.min.js"></script>
+    <style>
+    #c {
+        border: 2px dotted blue;
+    }
+    
+    </style>
+</head>
+
+<body>
+    <button id="del-btn">Delete</button>
+    <button id="save-btn">Save</button>
+    <button id="load-btn">Load</button>
+    <canvas id="c" width="600" height="600"></canvas>
+    
+    <ul>
+        <li><img src="img/btn_browse.png"></li>
+        <li><img src="img/btn_red.png"></li>
+        <li><img src="img/fa-lock.png"></li>
+        <li><img src="img/fa-user.png"></li>
+    </ul>
+    
+    <script>
+        var old_data = '{"objects":[{"type":"image","originX":"left","originY":"top","left":248.21,"top":24.43,"width":94,"height":36,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":84.26,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","src":"http://127.0.0.1:52777/img/btn_browse.png","filters":[],"crossOrigin":"","alignX":"none","alignY":"none","meetOrSlice":"meet"},{"type":"image","originX":"left","originY":"top","left":276.71,"top":289.54,"width":315,"height":315,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":0.68,"scaleY":0.68,"angle":324.71,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","src":"http://127.0.0.1:52777/img/btn_red.png","filters":[],"crossOrigin":"","alignX":"none","alignY":"none","meetOrSlice":"meet"}],"background":"","backgroundImage":{"type":"image","originX":"left","originY":"top","left":0,"top":0,"width":1600,"height":1200,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","src":"http://127.0.0.1:52777/img/under_the_s.jpg","filters":[],"crossOrigin":"","alignX":"none","alignY":"none","meetOrSlice":"meet"}}';
+        
+        $(function() {
+            $('ul li img').click(function() {
+                var url = $(this).attr('src');
+                fabric.Image.fromURL(url, function(oImg) {
+                  canvas.add(oImg);
+                });
+            });
+            
+            $('#del-btn').click(function() {
+                canvas.getActiveObject().remove();
+            });
+            
+            $('#save-btn').click(function() {
+                //var data = canvas.toJSON();
+                //console.log(JSON.stringify(data));
+                var data = canvas.toDataURL();
+                $.post('test_upload.php', {img: data});
+            });
+            
+            $('#load-btn').click(function() {
+                canvas.loadFromJSON(old_data);
+            });
+            
+            var canvas = new fabric.Canvas('c', {
+                backgroundImage: 'img/under_the_s.jpg'
+            });
+            
+        });
+        
+        // reference canvas element (with id="c")
+        
+        /*
+        fabric.Image.fromURL('img/btn_pen.png', function(oImg) {
+          canvas.add(oImg);
+        });*/
+    </script>
+</body>
+</html>
