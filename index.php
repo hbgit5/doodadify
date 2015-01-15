@@ -26,16 +26,31 @@
                 <a href="#" data-toggle="modal" data-target="#auth_modal">Sign Up</a>
             </div>
             <div class="main-canvas">
-                <div class="top-bar">
+                          <div class="top-bar btn-toolbar">
+
                     <button id="canvas-del">Delete</button>
                     <button id="canvas-clear">Clear All</button>
                     <button id="canvas-upload">Upload</button>
                     <button id="canvas-save">SAVE</button>
-                    <button id="canvas-share">SHARE</button>
+                    <!-- Single button drop down menu -->
+                    <div class="btn-group" id="canvas-share-div" >
+                        <button class="btn btn-default dropdown-toggle" id="canvas-share" data-toggle="dropdown" aria-expanded="false" >SHARE <span class="caret"></span></button>
+                        <ul class="dropdown-menu " role="menu">
+                            <li><a href="#"><img src="img/fb.png"> Facebook</a>
+                            </li>
+                            <li><a href="#"><img src="img/gplus.png"> Google+</a>
+                            </li>
+                            <li><a href="#"><img src="img/pinterest.png"> Pinterest</a>
+                            </li>
+                            <li><a href="#"><img src="img/instagram.png"> Instagram</a>
+                            </li>
+                        </ul>
+                        
+                    </div>
                 </div>
 
-                <div id="canvas-back-image">
-                    <img src="img/under_the_s.jpg"></img>
+                <div id="doodad-canvas-container">
+                    <canvas id="doodad-canvas" width="730" height="380" ></canvas>
                 </div>
 
                 <div id="canvas-doodad-picker">
@@ -101,7 +116,7 @@
         </div>
     </div>
 
-
+    <script src="fabric_test.js"></script>
     <script src="javascript.js "></script>
 </body>
 
