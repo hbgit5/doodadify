@@ -1,19 +1,19 @@
 <div id="login-panel">
-    <form id="login-form">
+    <form action="login_process.php" method="post" id="login-form">
         <div class="form-group login-section">
             <!-- <label for="recipient-name" class="control-label">Recipient:</label> -->
             <div id='login-username-field'>
                 <span class='glyphicon glyphicon-user'></span>
-                <input type="text" class="form-control login-shorten " placeholder="USERNAME" />
+                <input type="text" name="username" class="form-control login-shorten " placeholder="USERNAME" />
             </div>
             <div id='login-password-field'>
                 <span class="glyphicon glyphicon-lock"></span>
-                <input type="text" class="form-control login-shorten" placeholder="PASSWORD" />
+                <input type="password" name="password" class="form-control login-shorten" placeholder="PASSWORD" />
             </div>
         </div>
         <div id="register-button-field">
-            <button type="button" class="btn btn-success" id="login-submit">LOGIN</button>
-            <p><a href='#' id="frgt-pswd">Forgot password?</a>
+            <button type="submit" class="btn btn-success" id="login-submit">LOGIN</button>
+            
             </p>
         </div>
 
