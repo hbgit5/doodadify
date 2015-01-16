@@ -1,6 +1,6 @@
+<?php require_once 'header.php';?>
 <!DOCTYPE html>
 <html lang="">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +15,7 @@
 </head>
 
 <body>
+  
     <header>
         <img id="main-logo" src="img/doodadify_logo.png"></img>
 
@@ -23,8 +24,19 @@
 
         <section id="canvas-container">
             <div class="sign-in-btns">
-                <a href="#" data-toggle="modal" data-target="#auth_modal">Login</a>
-                <a href="#" data-toggle="modal" data-target="#auth_modal">Sign Up</a>
+                <?php
+                if(!isset($_SESSION['user']))
+                {
+                ?>
+                    <a href="#" data-toggle="modal" data-target="#auth_modal">Login / Sign Up</a>
+                <?php
+                }
+                else
+                {
+                ?>
+                    <h4>Hi there, <?php echo $_SESSION['user']['username'];?></h4>
+                <?php
+                } ?>
             </div>
             <div class="main-canvas">
                 <div class="top-bar btn-toolbar">

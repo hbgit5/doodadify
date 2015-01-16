@@ -1,5 +1,6 @@
 <?php include_once 'header.php'; ?>
 <?php
+
 /*--------------------------------------------------------------
 	Signup validation begins below: ---- */
 
@@ -7,7 +8,7 @@
 function checkIfUsernameExists($username) {
 	global $connection;
 
-	$seeIfExists = "SELECT `user_id` FROM `users` WHERE `user_name` = '$username'";
+	$seeIfExists = "SELECT `user_id` FROM `users` WHERE `username` = '$username'";
     
 	$result = mysqli_query($connection, $seeIfExists);
 		#further investigation needed on how mysql it stores results. Consult Daniel.
@@ -33,8 +34,10 @@ function pswdCheck($pswd) {
 		}
 	}
 
+$username = null;
+$email = null;
+$password = null;
 
-print_r($_POST); print strlen($_POST['signup-username']);
 if (!empty($_POST['signup-username'])&&(strlen($_POST['signup-username'])>6)) {
 	$username = filter_var($_POST['signup-username'], FILTER_SANITIZE_STRING);
 	if(checkIfUsernameExists($username)) {
@@ -52,8 +55,8 @@ if (!empty($_POST['signup-username'])&&(strlen($_POST['signup-username'])>6)) {
 }
 
 else {
-	exit(json_encode(array('result'=>false,'message'=>'The user name has to be atleast 7 characters long!')));
-	$username = NULL;
+    echo json_encode(array('result'=>false,'message'=>'The user name has to be at least 7 characters long!'));
+	exit;
 }
 
 if (!empty($_POST['email'])) {
@@ -93,12 +96,11 @@ else {
 if (!empty($_POST['signup-create-psw'])){
 	$validated_password = pswdCheck($_POST['signup-create-psw']);
 	if ($validated_password) {
-		$password = $_POST['signup-create-psw'];
+		$password = sha1($_POST['signup-create-psw']);
 	}
 	else {
 		//
 		exit(json_encode(array('result'=>false,'message'=>'Password must have atleast 1 uppercase, 1 number, and 1 symbol!')));
-		$password = NULL;
 	}
 
 }
@@ -113,11 +115,23 @@ if ($_POST['ageVerify'] != 'true') {
 //Start the Query
 
  $insert_user_query = 'INSERT INTO  `users` SET
- 						 `user_name` = 
- 						 `password`=
- 						 `email`=
- 						 `active`=
- 						 `registration_date`=
- 						 `last_login`=
- 						 `role`=';
-?>
+ 						 `username` = "'.$username.'",
+ 						 `password`= "'.$password.'",
+ 						 `email`= "'.$email.'",
+ 						 `active`=1,
+ 						 `registration_ts`= '.time().',
+ 						 `last_login_ts`='.time();
+
+mysqli_query($connection, $insert_user_query) or die(mysqli_error($connection));
+
+$select_query = 'SELECT user_id, username, email
+                    FROM `users`
+                    WHERE `user_id`='.mysqli_insert_id($connection);
+
+$result = mysqli_query($connection, $select_query);
+
+while($row = mysqli_fetch_assoc($result)) {
+    $_SESSION['user'] = $row;
+}
+
+header('Location: index.php');
