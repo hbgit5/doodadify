@@ -66,6 +66,7 @@ display:inline-block;
     border-radius: 5px;
     font-size:10px;
     margin:15px 20px 20px 20px;
+    padding: 6px 6px;
 }
 
 #canvas-save {
@@ -92,6 +93,7 @@ display:inline-block;
     width:100%;
     height:50px;
     margin-bottom: 10px;
+
     
 }
 
@@ -169,7 +171,7 @@ display:inline-block;
     
 }
 
-#canvas-back-image {
+#doodad-canvas-container {
     text-align: center;
     overflow: hidden;
     width: 730px;
@@ -328,13 +330,22 @@ span:nth-child(2) {
     position: absolute;
     top: 0;
     right: -100px;
+    margin-top: 20px;
 }
 
 
 
 #canvas-share {
-    float:right;
-    color:#ff8c00;
+    color:#ff8c00 !important;
+    position:relative;
+    background-color:#333333;
+    border-radius: 5px;
+    font-size:10px;
+    margin:15px 20px 20px 20px;
+   
+   
+
+    
 }
 
 footer {
@@ -600,3 +611,28 @@ ul#tabs {
 
 
 
+<<<<<<< HEAD
+=======
+#canvas-share-div {
+    float:right;
+}
+
+.dropdown-menu {
+    background-color: #04756f; 
+    
+}
+
+
+
+
+
+.dropdown-menu li a:hover {
+   
+    background-color:rgba(255,140,0,.9);
+    
+
+    
+}
+
+
+>>>>>>> 45c153f28b07ce51c2926586bdff7bf658e00efb

@@ -44,6 +44,7 @@ $(function () {
     canvas = new fabric.Canvas('c', {
         backgroundImage: 'img/under_the_s.jpg'
     });
+<<<<<<< HEAD
     
     $('#sausage-fest').click(canvas_sausages);
     $('#egg-splat').click(canvas_eggs);
@@ -107,3 +108,17 @@ function canvas_tomatoes() {
     }
 }
 
+=======
+});
+
+
+//facebook share required JS
+
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+>>>>>>> 45c153f28b07ce51c2926586bdff7bf658e00efb

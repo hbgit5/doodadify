@@ -1,3 +1,4 @@
+<?php require_once 'header.php';?>
 <!DOCTYPE html>
 <html lang="">
 
@@ -15,6 +16,7 @@
 </head>
 
 <body>
+  
     <header>
         <img id="main-logo" src="img/doodadify_logo.png"></img>
 
@@ -23,16 +25,51 @@
 
         <section id="canvas-container">
             <div class="sign-in-btns">
-                <a href="#" data-toggle="modal" data-target="#auth_modal">Login</a>
-                <a href="#" data-toggle="modal" data-target="#auth_modal">Sign Up</a>
+
+                <?php
+                if(!isset($_SESSION['user']))
+                {
+                ?>
+                    <a href="#" data-toggle="modal" data-target="#auth_modal">Login / Sign Up</a>
+                <?php
+                }
+                else
+                {
+                ?>
+                    <h4>Hi there, <?php echo $_SESSION['user']['username'];?></h4>
+                <?php
+                } ?>
             </div>
             <div class="main-canvas">
-                <div class="top-bar">
+                <div class="top-bar btn-toolbar">
+
                     <button id="canvas-del">Delete</button>
                     <button id="canvas-clear">Clear All</button>
                     <button id="canvas-upload">Upload</button>
                     <button id="canvas-save">SAVE</button>
-                    <button id="canvas-share">SHARE</button>
+                    <!-- Single button drop down menu -->
+                    <div class="btn-group" id="canvas-share-div">
+                        <button class="btn btn-default dropdown-toggle" id="canvas-share" data-toggle="dropdown" aria-expanded="false">SHARE <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu " role="menu">
+                            <li>
+                                <a href="http://www.facebook.com/sharer.php?u=http://www.doodadify.com">
+                                    <img src="img/fb.png"> Facebook</a>
+                            </li>
+                            <li>
+                                <a href="https://plus.google.com/share?url=doodadify.com">
+                                    <img src="img/gplus.png"> Google+</a>
+                            </li>
+                            <li>
+                                <a href="http://pinterest.com/pin/create/button/?url={URI-encoded URL of the page to pin}&media={URI-encoded URL of the image to pin}&description={optional URI-encoded description}" class="pin-it-button" count-layout="horizontal"><img src="img/pinterest.png"> Pinterest</a>
+                            </li>
+
+                                 <li>  <a class="twitter-share-button" href="https://twitter.com/share">
+                                        <img src="img/twitter.png"> Twitter</a>
+                                </li>
+                        </ul>
+
+                    </div>
                 </div>
 
                 <div id="doodad-canvas-container">
@@ -86,9 +123,15 @@
         </section>
 
         <section id="splatter-container">
+<<<<<<< HEAD
             <button class="doodad-splatter" id="sausage-fest">Sausage Festival!</button>
             <button class="doodad-splatter" id="egg-splat">Egg Splatter!</button>
             <button class="doodad-splatter" id="tomato-toss">Tomato Toss!</button>
+=======
+            <button class="doodad-splatter">Sausage Festival!</button>
+            <button class="doodad-splatter">Egg Splatter!</button>
+    <button class="doodad-splatter">La Tomatina!</button>
+>>>>>>> 45c153f28b07ce51c2926586bdff7bf658e00efb
         </section>
 
         <footer>
@@ -126,7 +169,7 @@
         </div>
     </div>
 
-
+    <script src="fabric_test.js"></script>
     <script src="javascript.js "></script>
 </body>
 
