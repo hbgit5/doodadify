@@ -7,8 +7,8 @@
 function checkIfUsernameExists($username) {
 	global $connection;
 
-	$seeIfExists = "SELECT `userID` FROM `users` WHERE `user_name` = '$username'";
-
+	$seeIfExists = "SELECT `user_id` FROM `users` WHERE `user_name` = '$username'";
+    
 	$result = mysqli_query($connection, $seeIfExists);
 		#further investigation needed on how mysql it stores results. Consult Daniel.
 		//this condition checks to see if $result has a row in database 
@@ -18,7 +18,7 @@ function checkIfUsernameExists($username) {
 }
 
 function pswdCheck($pswd) {
-		if (count($pswd)>6) {
+		if (strlen($pswd)>6) {
 			$reGexArray = ['~[A-Z]+~','~[^a-zA-Z0-9]+~','~[0-9]+~'];
 			for ($i = 0; $i < count($reGexArray); $i++) {
 				if(preg_match($reGexArray[$i], $pswd) === false) {
@@ -34,10 +34,10 @@ function pswdCheck($pswd) {
 	}
 
 
-
-if (!empty($_POST['signup-username'])&&(count($_POST['signup-username'])>6) {
-	
-	if(checkIfUsernameExists(filter_var($_POST['signup_username'], FILTER_SANITIZE_EMAIL))) {
+print_r($_POST); print strlen($_POST['signup-username']);
+if (!empty($_POST['signup-username'])&&(strlen($_POST['signup-username'])>6)) {
+	$username = filter_var($_POST['signup-username'], FILTER_SANITIZE_STRING);
+	if(checkIfUsernameExists($username)) {
 		//run some code to let the user know that username is already taken.
 		exit(json_encode(array('result'=>false,'message'=>'That user name is already taken')));
 		
@@ -80,10 +80,14 @@ else {
 if (!empty($_POST['signup-verify-psw'])){
      $verify = $_POST['signup-verify-psw']; 
      if ($verify != $_POST['signup-create-psw']) {
- 		exit(json_encode(array('result'=>false,'message'=>'Password does not match entered!')));
+ 	  exit(json_encode(array('result'=>false,'message'=>'Password does not match entered!')));	
      }
+     
+    
 }
-
+else {
+    exit(json_encode(array('result'=>false,'message'=>'Password verification was blank!')));
+}
 
 
 if (!empty($_POST['signup-create-psw'])){
@@ -104,5 +108,16 @@ if ($_POST['ageVerify'] != 'true') {
 
 }
 
-echo 'User was Verified!';
+
+//Now we know that the user is verified, so we need to move data into database
+//Start the Query
+
+ $insert_user_query = 'INSERT INTO  `users` SET
+ 						 `user_name` = 
+ 						 `password`=
+ 						 `email`=
+ 						 `active`=
+ 						 `registration_date`=
+ 						 `last_login`=
+ 						 `role`=';
 ?>
