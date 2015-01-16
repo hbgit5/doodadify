@@ -1,12 +1,18 @@
+<?php require_once 'header.php';
+if(!isset($_SESSION['user'])) {
+    header('Location: index.php');
+}
+
+$select_query = 'SELECT * FROM `canvas` WHERE `user_id`='.intval($_SESSION['user']['user_id']).' ORDER BY updated_ts DESC';
+$canvas_results = mysqli_query($connection, $select_query);
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>User Doodads | Doodadify</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-
     <link rel="stylesheet" href="userpage.css">
 </head>
 
@@ -24,24 +30,18 @@
                 </div>
 
                 <div id="gallery-container">
-                    <div class="photo_galary">Space and Dogs
-                        <div class="image_box"></div>
-                    </div>
-                    <div class="photo_galary">Beer Fun
-                        <div class="image_box"></div>
-                    </div>
-                    <div class="photo_galary">Dogs
-                        <div class="image_box"></div>
-                    </div>
-                    <div class="photo_galary">Aliens
-                        <div class="image_box"></div>
-                    </div>
-                    <div class="photo_galary">Beer Fun
-                        <div class="image_box"></div>
-                    </div>
-                    <div class="photo_galary">Hot Dogs
-                        <div class="image_box"></div>
-                    </div>
+                    <?php
+                    if(mysqli_num_rows($canvas_results) > 0) {
+                        while($row = mysqli_fetch_assoc($canvas_results)) {
+                    ?>
+                        <div class="photo_galary"><?php echo $row['title'];?>
+                            <div class="image_box">
+                                <a href="index.php?id=<?php echo $row['canvas_id'];?>" target="_blank"><img src="snapshots/<?php echo $row['user_id'];?>/<?php echo $row['canvas_id'];?>.png"></a>
+                            </div>
+                        </div>
+                    <?php
+                        }
+                    } ?>
                 </div>
 
 

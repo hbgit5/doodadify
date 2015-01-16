@@ -50,6 +50,11 @@ html, body {
     width: 210px;
     height: 158px;
     background-color: #ffffff;
+    overflow: hidden;
+}
+
+.image_box img {
+    width: 210px;
 }
 
 #midde-header {
@@ -68,6 +73,7 @@ html, body {
     height: 60px;
     background-color: #440e3c;
 }
+
 
 #thumb_logo_pic {
     width: 60px;

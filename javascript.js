@@ -41,14 +41,32 @@ $(function () {
     });
     
     /* Fabric Canvas */
-    canvas = new fabric.Canvas('c', {
-        backgroundImage: 'img/under_the_s.jpg'
-    });
-<<<<<<< HEAD
+    canvas = new fabric.Canvas('c');
     
     $('#sausage-fest').click(canvas_sausages);
     $('#egg-splat').click(canvas_eggs);
     $('#tomato-toss').click(canvas_tomatoes);
+    
+    $('#canvas-del').click(function() {
+        canvas.getActiveObject().remove();
+    });
+    
+    $('#canvas-clear').click(function() {
+        canvas.clear().renderAll();
+    });
+    
+    $('#canvas-save').click(function() {
+        var fabric_json = JSON.stringify(canvas.toJSON());
+        var img_data = canvas.toDataURL();
+        var params = {
+            fabric_data: fabric_json,
+            img: img_data
+        }
+        $.post('save.php', params, function(response) {
+            var canvas_id = response.data.canvas_id;
+            window.location = 'index.php?id='+canvas_id;
+        }, 'json');
+    });
     
     $('.doodad-boxes img').click(function () {
         var url = $(this).attr('data-img');
@@ -61,6 +79,16 @@ $(function () {
             canvas.add(oImg);
         });
     });
+    
+    /**  DANGER DROPZONE */
+    Dropzone.autoDiscover = false;
+    var bg_upload = new Dropzone("#bg-dropzone-container", {url: 'dropzone_upload.php', paramName: 'background_file'});
+
+    bg_upload.on('success', function(file, response) {
+        $('#canvas-upload').parent().removeClass('open');
+       canvas.setBackgroundImage(response, canvas.renderAll.bind(canvas));
+    });
+    
 });
 
 function canvas_sausages() {
@@ -108,12 +136,8 @@ function canvas_tomatoes() {
     }
 }
 
-=======
-});
-
-
 //facebook share required JS
-
+/*
 (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -121,4 +145,4 @@ function canvas_tomatoes() {
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
->>>>>>> 45c153f28b07ce51c2926586bdff7bf658e00efb
+*/
