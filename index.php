@@ -9,10 +9,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="dropzone.css">
+    
     <link rel="stylesheet" href="style.css">
+    
     <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script src="fabric.min.js"></script>
+    <script src="dropzone.js"></script>
 </head>
 
 <body>
@@ -45,13 +49,18 @@
 
                     <button id="canvas-del">Delete</button>
                     <button id="canvas-clear">Clear All</button>
-                    <button id="canvas-upload">Upload</button>
+                    <div class="btn-group">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="canvas-upload">Upload</button>
+                        <div class="dropdown-menu" id="bg-dz-menu" role="menu">
+                            <div id="bg-dropzone-container" class="dropzone"></div>
+                        </div>
+                    </div>
                     <button id="canvas-save">SAVE</button>
                     <!-- Single button drop down menu -->
                     <div class="btn-group" id="canvas-share-div">
                         <button class="btn btn-default dropdown-toggle" id="canvas-share" data-toggle="dropdown" aria-expanded="false">SHARE <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu " role="menu">
+                        <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a href="http://www.facebook.com/sharer.php?u=http://www.doodadify.com">
                                     <img src="img/fb.png"> Facebook</a>
@@ -123,15 +132,9 @@
         </section>
 
         <section id="splatter-container">
-<<<<<<< HEAD
             <button class="doodad-splatter" id="sausage-fest">Sausage Festival!</button>
             <button class="doodad-splatter" id="egg-splat">Egg Splatter!</button>
             <button class="doodad-splatter" id="tomato-toss">Tomato Toss!</button>
-=======
-            <button class="doodad-splatter">Sausage Festival!</button>
-            <button class="doodad-splatter">Egg Splatter!</button>
-    <button class="doodad-splatter">La Tomatina!</button>
->>>>>>> 45c153f28b07ce51c2926586bdff7bf658e00efb
         </section>
 
         <footer>
@@ -169,8 +172,34 @@
         </div>
     </div>
 
-    <script src="fabric_test.js"></script>
     <script src="javascript.js "></script>
+    <script>
+    <?php
+    if(isset($_GET['id'])) { ?>
+    // AJAX call to retrieve fabric data from database
+    // and loads it into fabric
+    $(function() {
+        $.get(
+            'load.php',
+            {id: <?php echo $_GET['id'];?>},
+            function(response) {
+                setTimeout(function() {
+                    console.log('hi');
+                    canvas.loadFromJSON(response);
+                }, 200);
+            }
+        );
+    });
+    <?php
+    } else { ?>
+        setTimeout(function() {
+                    canvas.setBackgroundImage('img/under_the_s.jpg', canvas.renderAll.bind(canvas));        
+                }, 200);
+        
+        <?php
+    }
+    ?>
+    </script>
 </body>
 
 </html>

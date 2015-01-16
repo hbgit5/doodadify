@@ -610,9 +610,6 @@ ul#tabs {
 
 
 
-
-<<<<<<< HEAD
-=======
 #canvas-share-div {
     float:right;
 }
@@ -622,17 +619,15 @@ ul#tabs {
     
 }
 
-
-
-
-
 .dropdown-menu li a:hover {
-   
     background-color:rgba(255,140,0,.9);
-    
-
-    
 }
 
-
->>>>>>> 45c153f28b07ce51c2926586bdff7bf658e00efb
+h4 {
+    color: white;
+}
+#bg-dz-menu {
+    width: 730px;
+    background: white;
+    left: -141px;
+}
