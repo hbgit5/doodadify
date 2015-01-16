@@ -54,7 +54,9 @@ display:inline-block;
  
 }
 
-
+#doodad-canvas-container {
+    margin-left: 35px;
+}
 
 .top-bar button{
     position:relative;
@@ -77,6 +79,7 @@ display:inline-block;
 
 #canvas-back-image img {
     max-width: 730px;   
+   
 }
 
 
@@ -317,9 +320,7 @@ span:nth-child(2) {
     
 }
 
-#canvas-container {
-    
-}
+
 
 #splatter-container {
     width: 100px;
@@ -595,3 +596,7 @@ ul#tabs {
 #checkbox-field {
     font-size: 15px;
 }
+
+
+
+

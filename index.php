@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +23,7 @@
 
         <section id="canvas-container">
             <div class="sign-in-btns">
-                <a href="#" data-toggle="modal" data-target="#auth_modal" >Login</a>
+                <a href="#" data-toggle="modal" data-target="#auth_modal">Login</a>
                 <a href="#" data-toggle="modal" data-target="#auth_modal">Sign Up</a>
             </div>
             <div class="main-canvas">
@@ -35,7 +36,7 @@
                 </div>
 
                 <div id="doodad-canvas-container">
-                    <canvas id="doodad-canvas" width="730" height="380"></canvas>
+                    <canvas id="c" width="730" height="380"></canvas>
                 </div>
 
                 <div id="canvas-doodad-picker">
@@ -43,27 +44,51 @@
                     </p>
 
                     <div class="doodad-boxes">
-                        <div class="neg-degree-10 doodad-cat-box" id="left-arrow"></div>
-                        <div class=" degree-10 doodad-cat-box"></div>
-                        <div class="neg-degeree-20 doodad-cat-box"></div>
-                        <div class="degree-10 doodad-cat-box"></div>
-                        <div class="neg-degree-20 doodad-cat-box"></div>
-                        <div class="degree-10 doodad-cat-box"></div>
-                        <div class="neg-degree-20 doodad-cat-box"></div>
-                        <div class="degree-10 doodad-cat-box"></div>
-                        <div class="neg-degree-20 doodad-cat-box"></div>
-                        <div class="degree-10 doodad-cat-box"></div>
-                        <div class="neg-degree-20 doodad-cat-box"></div>
-                        <div class="degree-20 doodad-cat-box" id="right-arrow"></div>
+                        <div class="neg-degree-10 doodad-cat-box">
+                        <img src="img/doodads_images/icecream_melted_thumb.png" data-img="img/doodads_images/icecream_melted.png" class="thumb-img">
+                        </div>
+                        <div class=" degree-10 doodad-cat-box">
+                            <img src="img/doodads_images/alien_thumb.png" data-img="img/doodads_images/alien.png" class="thumb-img">
+                        </div>
+                        <div class="neg-degeree-20 doodad-cat-box">
+                            <img src="img/doodads_images/banana_thumb.png" data-img="img/doodads_images/banana.png" class="thumb-img">
+                        </div>
+                        <div class="degree-10 doodad-cat-box">
+                            <img src="img/doodads_images/beer_thumb.png" data-img="img/doodads_images/beer.png" class="thumb-img">
+                        </div>
+                        <div class="neg-degree-20 doodad-cat-box">
+                            <img src="img/doodads_images/catfat_thumb.png" data-img="img/doodads_images/catfat.png" class="thumb-img">
+                        </div>
+                        <div class="degree-10 doodad-cat-box">
+                            <img src="img/doodads_images/dog_funny_thumb.png" data-img="img/doodads_images/dog_funny.png" class="thumb-img">
+                        </div>
+                        <div class="neg-degree-20 doodad-cat-box">
+                            <img src="img/doodads_images/flower_pink_thumb.png" data-img="img/doodads_images/flower_pink.png" class="thumb-img">
+                        </div>
+                        <div class="degree-10 doodad-cat-box">
+                            <img src="img/doodads_images/flying_saucer_thumb.png" data-img="img/doodads_images/flying_saucer.png" class="thumb-img">
+                        </div>
+                        <div class="neg-degree-20 doodad-cat-box">
+                            <img src="img/doodads_images/star_thumb.png" data-img="img/doodads_images/star.png" class="thumb-img">
+                        </div>
+                        <div class="degree-10 doodad-cat-box">
+                            <img src="img/doodads_images/ninja_thumb.png" data-img="img/doodads_images/ninja.png" class="thumb-img">
+                        </div>
+                        <div class="neg-degree-20 doodad-cat-box">
+                            <img src="img/doodads_images/hamburger_thumb.png" data-img="img/doodads_images/hamburger.png" class="thumb-img">
+                        </div>
+                        <div class="degree-20 doodad-cat-box">
+                        <img src="img/doodads_images/stallion_thumb.png" data-img="img/doodads_images/stallion.png" class="thumb-img">
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="splatter-container">
-            <button class="doodad-splatter">Sausage Festival!</button>
-            <button class="doodad-splatter">Egg Splatter!</button>
-            <button class="doodad-splatter">Unknown Splatter!</button>
+            <button class="doodad-splatter" id="sausage-fest">Sausage Festival!</button>
+            <button class="doodad-splatter" id="egg-splat">Egg Splatter!</button>
+            <button class="doodad-splatter" id="tomato-toss">Tomato Toss!</button>
         </section>
 
         <footer>
