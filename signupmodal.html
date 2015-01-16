@@ -10,8 +10,12 @@
 
 </head>
 <body>
+
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Sign-up/Log</button>
 <!--Removed data-whatever="@mdo" -->
+
+
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -24,24 +28,26 @@
       </div>
       <div class="modal-body">
       <div id = "signup-panel">
-       <form id="signup-form">
+       <form id="signup-form" action = "infoprocess.php" method = "post">
           <div class="form-group">
            <!-- <label for="recipient-name" class="control-label">Recipient:</label> -->
             <div id = 'email-field'>
         		<span class = "glyphicon glyphicon-envelope"></span>
-            	<input type="text" class="form-control shorten fa-envelope" id="recipient-name" placeholder="EMAIL"/>
+            	<input type="email" class="form-control shorten fa-envelope" id="recipient-name" placeholder="EMAIL" name="email" required/>
             </div>
-            <div id = 'username-field'>
+            <div id='username-field'>
             	<span class = 'glyphicon glyphicon-user'></span>
-            	<input type="text" class="form-control shorten " placeholder="CREATE USERNAME"/>
+            	<input type="text" class="form-control shorten " placeholder="CREATE USERNAME"
+              maxlength='15' name="signup-username"required/>
         	</div>
         	<div id = 'createPassword-field'>
     			<span class = "glyphicon glyphicon-lock"></span>
-            	<input type="text" class="form-control shorten" placeholder="CREATE PASSWORD"/>
+            	<input type="text" class="form-control shorten" placeholder="CREATE PASSWORD"
+              name="signup-create-psw" required/>
         	</div>
         	<div id = 'verifyPassword-field'>
     		<span class = 'glyphicon glyphicon-lock'></span>
-            <input type="text" class="form-control shorten " placeholder="VERIFY PASSWORD"/>
+            <input type="text" maxlength='15'class="form-control shorten " placeholder="VERIFY PASSWORD" name='signup-verify-psw' required/>
         	</div>
 
 			<div id = 'checkbox-field'>
